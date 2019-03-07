@@ -124,13 +124,13 @@ open class MainActivity : AppCompatActivity() {
     fun btnPercent(view:View){
         val number:Double=editTxtShow.text.toString().toDouble()/100
 
-        editTxtShow.setText(number.toString())
+        editTxtShow.text = number.toString()
         isNewOp=true
 
     }
 
     fun btnClean(view:View){
-        editTxtShow.setText("0")
+        editTxtShow.text = "0"
         isNewOp=true
     }
 }
