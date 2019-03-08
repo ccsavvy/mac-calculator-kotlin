@@ -100,25 +100,29 @@ open class MainActivity : AppCompatActivity() {
     }
 
     fun btnEqualEvent(view:View){
-        val newNumber=editTxtShow.text.toString()
-        var finalNumber:Double?=null
-        when(op){
 
-            "*"->{
-                finalNumber=  oldNumber.toDouble() * newNumber.toDouble()
+        if (!oldNumber.isEmpty()){
+            val newNumber = editTxtShow.text.toString()
+            var finalNumber: Double? = null
+
+            when (op) {
+
+                "*" -> {
+                    finalNumber = oldNumber.toDouble() * newNumber.toDouble()
+                }
+                "/" -> {
+                    finalNumber = oldNumber.toDouble() / newNumber.toDouble()
+                }
+                "+" -> {
+                    finalNumber = oldNumber.toDouble() + newNumber.toDouble()
+                }
+                "-" -> {
+                    finalNumber = oldNumber.toDouble() - newNumber.toDouble()
+                }
             }
-            "/"->{
-                finalNumber=  oldNumber.toDouble() / newNumber.toDouble()
-            }
-            "+"->{
-                finalNumber=  oldNumber.toDouble() + newNumber.toDouble()
-            }
-            "-"->{
-                finalNumber=  oldNumber.toDouble() - newNumber.toDouble()
-            }
+            editTxtShow.text = finalNumber.toString()
+            isNewOp = true
         }
-        editTxtShow.setText(finalNumber.toString())
-        isNewOp=true
     }
 
     fun btnPercent(view:View){
