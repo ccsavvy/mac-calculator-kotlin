@@ -8,9 +8,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 open class MainActivity : AppCompatActivity() {
 
-    var op="*"
-    var oldNumber=""
-    var isNewOp=true
+    var op = "*"
+    var oldNumber = ""
+    var isNewOp = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,19 +19,19 @@ open class MainActivity : AppCompatActivity() {
         //textView.text = "Welcome to Kotlin"
     }
 
-    protected fun btnNumberEvent(view: View) {
+    fun btnNumberEvent(view: View) {
 
-        if(isNewOp){
+        if (isNewOp) {
             editTxtShow.text = null
             editTxtShow.text = ""
         }
-        isNewOp=false
+        isNewOp = false
 
 
         val btnSelect = view as Button
         var btnClickValue = editTxtShow.text.toString()
 
-        when(btnSelect.id) {
+        when (btnSelect.id) {
             btn0.id -> {
                 btnClickValue += "0"
             }
@@ -67,7 +67,7 @@ open class MainActivity : AppCompatActivity() {
                 btnClickValue = "-$btnClickValue"
             }
             btnDot.id -> {
-                if(!btnClickValue.contains(".")) {
+                if (!btnClickValue.contains(".")) {
                     btnClickValue += "."
                 }
             }
@@ -77,31 +77,31 @@ open class MainActivity : AppCompatActivity() {
         editTxtShow.text = btnClickValue
     }
 
-    fun btnOpEvent(view:View){
+    fun btnOpEvent(view: View) {
 
         var buSelect = view as Button
-        when(buSelect.id) {
+        when (buSelect.id) {
             btnTimes.id -> {
-                op="*"
+                op = "*"
             }
             btnDivide.id -> {
-                op="/"
+                op = "/"
             }
             btnMinus.id -> {
-                op="-"
+                op = "-"
             }
             btnPlus.id -> {
-                op="+"
+                op = "+"
             }
         }
 
-        oldNumber=editTxtShow.text.toString()
-        isNewOp=true
+        oldNumber = editTxtShow.text.toString()
+        isNewOp = true
     }
 
-    fun btnEqualEvent(view:View){
+    fun btnEqualEvent(view: View) {
 
-        if (!oldNumber.isEmpty()){
+        if (oldNumber.isNotEmpty()) {
             val newNumber = editTxtShow.text.toString()
             var finalNumber: Double? = null
 
@@ -125,16 +125,16 @@ open class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun btnPercent(view:View){
-        val number:Double=editTxtShow.text.toString().toDouble()/100
+    fun btnPercent(view: View) {
+        val number: Double = editTxtShow.text.toString().toDouble() / 100
 
         editTxtShow.text = number.toString()
-        isNewOp=true
+        isNewOp = true
 
     }
 
-    fun btnClean(view:View){
+    fun btnClean(view: View) {
         editTxtShow.text = "0"
-        isNewOp=true
+        isNewOp = true
     }
 }
